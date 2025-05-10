@@ -6,7 +6,7 @@ exports.renderAdminLoginUI = (req, res) => {
 
 exports.login = async (req, res) => {
   try {
-    const connection = require(`./../server`);
+    const connection = require(`./../app`);
     const databaseHandler = require("./databaseHandler");
 
     const result = await databaseHandler.loginAdmin(

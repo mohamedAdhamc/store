@@ -27,7 +27,7 @@ const insertIntoUser = (connection, value, userData, res) => {
   });
 };
 exports.checkEmails = (req, res, next) => {
-  const connection = require(`./../server`);
+  const connection = require(`./../app`);
   const userData = req.body;
   new Promise((resolve) => {
     connection.query(
@@ -53,7 +53,7 @@ exports.checkEmails = (req, res, next) => {
 };
 
 exports.signup = (req, res, next) => {
-  const connection = require(`./../server`);
+  const connection = require(`./../app`);
   const userData = req.body;
   try {
     new Promise((resolve) => {

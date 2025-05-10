@@ -16,7 +16,7 @@ exports.CreateNewSellingItem = async (req, res) => {
     req.cookies.token,
     process.env.JWT_SECRET_KEY
   );
-  const connection = require("./../server");
+  const connection = require("./../app");
   const databaseHandler = require("./databaseHandler");
   const tempPath =
     "uploads/" +
@@ -52,7 +52,7 @@ exports.CreateNewSellingItem = async (req, res) => {
   } catch (err) {
     res.status(422).json({
       status: "failure",
-      message: "Couldn't create ",
+      message: "Couldn't create 🧑🏿‍🦲",
     });
   }
 };
@@ -62,7 +62,7 @@ exports.updateCurrentSellingItem = async (req, res) => {
       req.cookies.token,
       process.env.JWT_SECRET_KEY
     );
-    const connection = require("./../server");
+    const connection = require("./../app");
     const databaseHandler = require("./databaseHandler");
     let tempPath;
     if (req.file) {
@@ -94,7 +94,7 @@ exports.updateCurrentSellingItem = async (req, res) => {
 };
 
 exports.deleteInventoryItem = async (req, res) => {
-  const connection = require("./../server");
+  const connection = require("./../app");
   const databaseHandler = require("./databaseHandler");
 
   try {

@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config({ path: "config.env" });
 
 exports.search = async (req, res) => {
-  const connection = require("./../server");
+  const connection = require("./../app");
   const databaseHandler = require("./databaseHandler");
   const queryObj = { ...req.query }; // localhost:3000/market?page=1
   const { name, price } = queryObj;

@@ -15,7 +15,7 @@ exports.checkBalance = async (req, res, next) => {
     req.cookies.token,
     process.env.JWT_SECRET_KEY
   );
-  const connection = require("./../server");
+  const connection = require("./../app");
   try {
     const { Balance } = JSON.parse(
       JSON.stringify(
@@ -53,7 +53,7 @@ exports.checkBalance = async (req, res, next) => {
   next();
 };
 exports.decrementItems = async (req, res, next) => {
-  const connection = require("./../server");
+  const connection = require("./../app");
   try {
     for (const boughtItem of req.body) {
       const remainingQuantity =
@@ -75,7 +75,7 @@ exports.decrementItems = async (req, res, next) => {
   }
 };
 exports.storeOrder = async (req, res) => {
-  const connection = require("./../server");
+  const connection = require("./../app");
   try {
     const loggedInUser = jwt.verify(
       req.cookies.token,

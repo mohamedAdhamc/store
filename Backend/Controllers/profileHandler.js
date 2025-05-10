@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config({ path: "config.env" });
 exports.renderProfileUI = async (req, res) => {
   const databaseHandler = require("./databaseHandler");
-  const connection = require("./../server");
+  const connection = require("./../app");
   try {
     const loggedInUser = jwt.verify(
       req.cookies.token,

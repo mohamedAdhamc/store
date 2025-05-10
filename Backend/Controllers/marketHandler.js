@@ -20,7 +20,7 @@ exports.renderMarketUI = async (req, res) => {
   const token = req.cookies.token;
   const loggedInUser = jwt.verify(token, process.env.JWT_SECRET_KEY);
   try {
-    const connection = require(`./../server`);
+    const connection = require(`./../app`);
     const databaseHandler = require("./databaseHandler");
     const queryObj = { ...req.query }; // localhost:3000/market?page=1
     const pageNumber = req.query.page * 1 || 1;

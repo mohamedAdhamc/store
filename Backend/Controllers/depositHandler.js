@@ -7,7 +7,7 @@ exports.renderDepositUI = async (req, res) => {
       process.env.JWT_SECRET_KEY
     );
     const databaseHandler = require("./databaseHandler");
-    const connection = require("./../server");
+    const connection = require("./../app");
     const user = JSON.parse(
       JSON.stringify(
         await databaseHandler.getUser(req, res, connection, loggedInUser.ID)
@@ -20,7 +20,7 @@ exports.renderDepositUI = async (req, res) => {
 };
 exports.makeDeposit = async (req, res, next) => {
   try {
-    const connection = require(`./../server`);
+    const connection = require(`./../app`);
     const databaseHandler = require("./databaseHandler");
     const loggedInUser = jwt.verify(
       req.cookies.token,
@@ -40,7 +40,7 @@ exports.makeDeposit = async (req, res, next) => {
 };
 exports.storeDeposit = async (req, res) => {
   try {
-    const connection = require("./../server");
+    const connection = require("./../app");
     const databaseHandler = require("./databaseHandler");
     const loggedInUser = jwt.verify(
       req.cookies.token,
