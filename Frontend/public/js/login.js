@@ -4,7 +4,7 @@
 //!Element selection
 const loginTabEl = document.querySelector(".login-tab");
 const signupTabEl = document.querySelector(".signup-tab");
-const boxEl = document.querySelector(".box");
+const boxEl = document.querySelector(".tab-box");
 const loginBoxEl = document.querySelector(".login-box");
 let signupBtnEl;
 let loginBtnEl = document.querySelector(".btn-login");
@@ -182,7 +182,7 @@ const signupBtnEventListener = function () {
 boxEl.addEventListener("click", function (e) {
   e.preventDefault();
 
-  const flag = e.target.parentElement.querySelector(".firstname");
+  const flag = loginBoxEl.querySelector(".firstname");
 
   //!Guard clause
   if (

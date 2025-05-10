@@ -10,19 +10,19 @@
 .login-section {
   padding-top: 5rem;
   width: 100%;
-
-  /* height: 100vh; */
+  height: 100vh;
   background: rgb(255, 196, 123);
   background: linear-gradient(
     0deg,
-    rgba(255, 196, 123, 0.9780287114845938) 8%,
-    rgba(215, 215, 215, 1) 88%
+    rgba(178, 223, 163, 0.978) 8%,
+    rgb(255, 255, 255) 88%
   );
   display: flex;
   flex-direction: column;
   gap: 8rem;
   justify-content: center;
   align-items: center;
+  overflow:auto;
 }
 
 .icon-box {
@@ -46,10 +46,20 @@
   width: 30%;
 }
 
+.tab-box {
+  position: relative;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 30%;
+}
+
 .active-tab {
   background-color: var(--primaryColorDark);
   color: #fff !important;
-  top: -5rem !important;
+  /* top: -5rem !important; */
   transition: all 0.3s;
 }
 .inactive-tab {
@@ -76,12 +86,13 @@
   transform: translateX(50%);
 }
 .login-box {
+  background-color: white;
 }
 .input-field {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 2rem;
+  padding: 1rem 2rem;
   width: 100%;
 }
 
