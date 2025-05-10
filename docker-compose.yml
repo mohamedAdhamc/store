@@ -1,0 +1,30 @@
+services:
+  backend:
+    image: store/backend
+    build:
+      target: backend-dev
+    container_name: backend
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  database:
+    image: mysql:8.0
+    container_name: database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: YourStrongRootPass1!
+      MYSQL_DATABASE: sakila   # ✅ This creates the database before the dump is loaded
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-pYourStrongRootPass1!"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./sakila.sql:/docker-entrypoint-initdb.d/sakila.sql
